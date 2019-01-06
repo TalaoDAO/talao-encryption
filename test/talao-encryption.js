@@ -102,7 +102,9 @@ describe('talao-encryption', function() {
     console.log('\n');
     console.log('RSA private:\n' + talaoEncryption.getPrivateRsa() + '\n');
     console.log('RSA public:\n' + talaoEncryption.getPublicRsa() + '\n');
-    console.log('Encrypted AES for Ethereum:\n' + talaoEncryption.aesEncryptForEthereum() + '\n');
+    console.log('AES:\n' + talaoEncryption.getAesHex() + '\n');
+    console.log('Public RSA for Ethereum:\n' + talaoEncryption.getPublicRsaForEthereum() + '\n');
+    console.log('Encrypted AES for Ethereum:\n' + talaoEncryption.rsaEncryptAesForEthereum() + '\n');
   });
 
 });
