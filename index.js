@@ -60,6 +60,11 @@ class TalaoEncryption {
     return '0x' + encryptedHex;
   }
 
+  rsaDecryptAesFromEthereumAndLoad(ethereum) {
+    const decrypted = this.rsaDecryptAesFromEthereum(ethereum);
+    this.loadAes(decrypted);
+  }
+
   rsaDecryptAesFromEthereum(ethereum) {
     const encrypted = ethereum.substr(2);
     const buffer = Buffer.from(encrypted, 'hex');
