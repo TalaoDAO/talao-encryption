@@ -71,10 +71,8 @@ describe('talao-encryption', function() {
     encryption2.loadRsa(encryption.getPrivateRsa());
     // Emulating call to Ethereum to get encrypted AES.
     const encryptedAesFromEthereum = encryption.rsaEncryptAesForEthereum();
-    console.log(encryptedAesFromEthereum)
     // Decrypt Ethereum data to get AES key.
     encryption2.rsaDecryptAesFromEthereumAndLoad(encryptedAesFromEthereum);
-    // console.log(encryption2.getAesHex(), encryption.getAesHex());
     assert.equal(encryption2.getAesHex(), encryption.getAesHex());
   });
 
