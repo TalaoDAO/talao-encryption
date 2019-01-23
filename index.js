@@ -55,20 +55,20 @@ class TalaoEncryption {
   }
 
   rsaEncryptAesForEthereum() {
-    const encrypted = this.rsa.encrypt(this.getAesHex());
+    const encrypted = this.rsa.encrypt(this.getAes());
     const encryptedHex = encrypted.toString('hex');
     return '0x' + encryptedHex;
-  }
-
-  rsaDecryptAesFromEthereumAndLoad(ethereum) {
-    const decrypted = this.rsaDecryptAesFromEthereum(ethereum);
-    this.loadAes(decrypted);
   }
 
   rsaDecryptAesFromEthereum(ethereum) {
     const encrypted = ethereum.substr(2);
     const buffer = Buffer.from(encrypted, 'hex');
     return this.rsa.decrypt(buffer);
+  }
+
+  rsaDecryptAesFromEthereumAndLoad(ethereum) {
+    const decrypted = this.rsaDecryptAesFromEthereum(ethereum);
+    this.loadAes(decrypted);
   }
 
   aesEncrypt(text) {
